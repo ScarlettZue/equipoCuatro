@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">dogApp</string>
+
+    <!-- Títulos de las ventanas -->
+    <string name="title_login">DogApp</string>
+    <string name="title_home">Administrador de Citas</string>
+    <string name="title_add_appointment">Nueva Cita</string>
+    <string name="title_appointment_details">Detalle de la Cita</string>
+    <string name="title_edit_appointment">Editar Cita</string>
 </resources>

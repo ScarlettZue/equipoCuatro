@@ -1,0 +1,17 @@
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Compilación y temporales
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+/out
+
+# Configuración local
+local.properties
+.DS_Store

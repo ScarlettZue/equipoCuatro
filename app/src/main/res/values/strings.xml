@@ -7,4 +7,7 @@
     <string name="title_add_appointment">Nueva Cita</string>
     <string name="title_appointment_details">Detalle de la Cita</string>
     <string name="title_edit_appointment">Editar Cita</string>
+
+    <!-- HU 1.0 Ventana Login -->
+    <string name="login_dog_description">Cabeza de un perro</string>
 </resources>

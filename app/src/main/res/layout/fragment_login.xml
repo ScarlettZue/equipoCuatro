@@ -9,5 +9,18 @@
         android:background="@color/dark_gray"
         tools:context=".view.fragment.LoginFragment">
 
+        <ImageView
+            android:id="@+id/ivDog"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="56dp"
+            android:contentDescription="@string/login_dog_description"
+            android:scaleType="fitEnd"
+            android:src="@drawable/dog_head"
+            app:layout_constraintDimensionRatio="1100:846"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.82" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

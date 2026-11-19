@@ -22,5 +22,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.82" />
 
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/patua_one"
+            android:text="@string/title_login"
+            android:textColor="@color/white"
+            android:textSize="52sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDog" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -10,6 +10,7 @@ import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_WEAK
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.univalle.dogapp.R
 import com.univalle.dogapp.databinding.FragmentLoginBinding
 
@@ -43,7 +44,8 @@ class LoginFragment : Fragment() {
         val callback = object : BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                 super.onAuthenticationSucceeded(result)
-                // La navegación al Home se agrega con el criterio 6.
+                // Huella correcta: entra al Home (HU 2.0).
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
             }
             // Si la huella no coincide, la ventana del dispositivo muestra su propio
             // mensaje de error y el usuario se queda en el login.

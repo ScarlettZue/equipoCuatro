@@ -10,4 +10,5 @@
 
     <!-- HU 1.0 Ventana Login -->
     <string name="login_dog_description">Cabeza de un perro</string>
+    <string name="login_fingerprint_description">Ingresar con huella digital</string>
 </resources>

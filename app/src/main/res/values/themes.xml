@@ -1,3 +1,7 @@
 <resources>
-    <style name="Theme.DogApp" parent="Theme.Material3.DayNight.NoActionBar" />
+    <!-- Tema claro y sin ActionBar: las historias piden fondo blanco y toolbars propias. -->
+    <style name="Theme.DogApp" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple</item>
+        <item name="android:statusBarColor">@color/purple</item>
+    </style>
 </resources>

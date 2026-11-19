@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <!-- Rosado exigido en las historias de usuario -->
+    <color name="pink">#F05861</color>
+    <!-- Gris oscuro del login, el header y las toolbars (aproximado del pantallazo) -->
+    <color name="dark_gray">#21282D</color>
+    <!-- Morado de la barra de estado y del borde de los campos con foco (aproximado del pantallazo) -->
+    <color name="purple">#6750A4</color>
+</resources>

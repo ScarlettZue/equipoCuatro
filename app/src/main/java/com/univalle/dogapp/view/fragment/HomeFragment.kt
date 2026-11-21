@@ -51,7 +51,6 @@ class HomeFragment : Fragment() {
     }
     private fun setupRecyclerView() {
         appointmentAdapter = AppointmentAdapter { appointmentId ->
-            // Criterio 5: Clic en ítem navega a HU 4.0 (Detalle)
             val bundle = Bundle().apply {
                 putInt("appointmentId", appointmentId)
             }
@@ -70,9 +69,24 @@ class HomeFragment : Fragment() {
 
     private fun loadMockData() {
         val mockList = listOf(
-            AppointmentItem(1, "Cory", "Fractura extremidad", "https://images.dog.ceo/breeds/pitbull/dog1.jpg"),
-            AppointmentItem(2, "Zeus", "Solo duerme", "https://images.dog.ceo/breeds/hound/dog2.jpg"),
-            AppointmentItem(3, "Rocky", "No come", "https://images.dog.ceo/breeds/akita/dog3.jpg")
+            AppointmentItem(
+                id = 1,
+                dogName = "Cory",
+                symptom = "Fractura extremidad",
+                photoUrl = "https://images.dog.ceo/breeds/pitbull/dog-3981540_1280.jpg"
+            ),
+            AppointmentItem(
+                id = 2,
+                dogName = "Zeus",
+                symptom = "Solo duerme",
+                photoUrl = "https://images.dog.ceo/breeds/hound-english/n02089973_1.jpg"
+            ),
+            AppointmentItem(
+                id = 3,
+                dogName = "Rocky",
+                symptom = "No come",
+                photoUrl = "https://images.dog.ceo/breeds/akita/An_Akita_Inu_resting.jpg"
+            )
         )
         appointmentAdapter.updateList(mockList)
     }

@@ -23,6 +23,29 @@ MVVM con Repository. Todo el código está en `app/src/main/java/com/univalle/do
 
 Regla del equipo: ningún fragment o activity consulta la base de datos ni la API directamente; siempre se pasa por ViewModel y Repository.
 
+## Capa de datos de las citas
+
+Todas las historias usan el mismo `AppointmentViewModel`:
+
+```kotlin
+private val appointmentViewModel: AppointmentViewModel by viewModels()
+```
+
+| Necesito | Llamar | Observar |
+|---|---|---|
+| Listar las citas (Home) | `getListAppointments()` | `listAppointments` |
+| Traer una cita por su id (Detalle, Editar) | `getAppointmentById(id)` | `appointment` |
+| Guardar una cita (Nueva Cita) | `saveAppointment(cita) { ok -> ... }` | |
+| Editar una cita | `updateAppointment(cita) { ok -> ... }` | |
+| Eliminar una cita | `deleteAppointment(cita) { ok -> ... }` | |
+| Lista de razas para el campo Raza | `getBreeds()` | `listBreeds` |
+| Saber si hay una operación en curso (loading) | | `progressState` |
+
+- La cita es la entidad `Appointment` (`id`, `dogName`, `breed`, `ownerName`, `phone`, `symptom`, `photoUrl`). El `id` es autogenerado y es el turno.
+- Al guardar no se envía `photoUrl`: el repositorio consulta la imagen de la raza en la API y la guarda con la cita. Al editar solo se cambia la imagen si cambió la raza.
+- La función que va entre llaves en guardar, editar y eliminar se ejecuta cuando la operación termina; ahí se navega al Home.
+- Las pruebas de esta capa están en `app/src/androidTest` y se ejecutan en un dispositivo con internet.
+
 ## Navegación
 
 Un solo `MainActivity` con el grafo `res/navigation/nav_graph.xml`:

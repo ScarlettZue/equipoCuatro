@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.univalle.dogapp.R
 import com.univalle.dogapp.databinding.FragmentHomeBinding
 import com.univalle.dogapp.view.adapter.AppointmentAdapter
-import com.univalle.dogapp.view.adapter.AppointmentItem
+import com.univalle.dogapp.viewmodel.AppointmentViewModel
 
 class HomeFragment : Fragment() {
 
@@ -18,6 +19,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var appointmentAdapter: AppointmentAdapter
+    private val appointmentViewModel: AppointmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,11 +36,9 @@ class HomeFragment : Fragment() {
         setupBackNavigation()
         setupRecyclerView()
         setupListeners()
-
-        // TODO: Cuando la tarea TS 1.0 (ViewModel) esté lista, aquí observaremos el LiveData de citas.
-        // Para probar la vista ahora mismo, puedes descomentar la siguiente línea con datos de prueba:
-        loadMockData()
+        getListAppointments()
     }
+
     private fun setupBackNavigation() {
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
@@ -49,6 +49,7 @@ class HomeFragment : Fragment() {
             }
         )
     }
+
     private fun setupRecyclerView() {
         appointmentAdapter = AppointmentAdapter { appointmentId ->
             val bundle = Bundle().apply {
@@ -61,34 +62,18 @@ class HomeFragment : Fragment() {
         }
         binding.rvAppointments.adapter = appointmentAdapter
     }
+
     private fun setupListeners() {
         binding.fabAddAppointment.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addAppointmentFragment)
         }
     }
 
-    private fun loadMockData() {
-        val mockList = listOf(
-            AppointmentItem(
-                id = 1,
-                dogName = "Cory",
-                symptom = "Fractura extremidad",
-                photoUrl = "https://images.dog.ceo/breeds/pitbull/dog-3981540_1280.jpg"
-            ),
-            AppointmentItem(
-                id = 2,
-                dogName = "Zeus",
-                symptom = "Solo duerme",
-                photoUrl = "https://images.dog.ceo/breeds/hound-english/n02089973_1.jpg"
-            ),
-            AppointmentItem(
-                id = 3,
-                dogName = "Rocky",
-                symptom = "No come",
-                photoUrl = "https://images.dog.ceo/breeds/akita/An_Akita_Inu_resting.jpg"
-            )
-        )
-        appointmentAdapter.updateList(mockList)
+    private fun getListAppointments() {
+        appointmentViewModel.getListAppointments()
+        appointmentViewModel.listAppointments.observe(viewLifecycleOwner) { list ->
+            appointmentAdapter.updateList(list)
+        }
     }
 
     override fun onDestroyView() {

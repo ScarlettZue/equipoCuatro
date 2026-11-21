@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.univalle.dogapp.R
 import com.univalle.dogapp.databinding.FragmentHomeBinding
 import com.univalle.dogapp.view.adapter.AppointmentAdapter
+import com.univalle.dogapp.view.adapter.AppointmentItem
 import com.univalle.dogapp.viewmodel.AppointmentViewModel
 
 class HomeFragment : Fragment() {
@@ -70,10 +71,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun getListAppointments() {
-        appointmentViewModel.getListAppointments()
         appointmentViewModel.listAppointments.observe(viewLifecycleOwner) { list ->
-            appointmentAdapter.updateList(list)
+            appointmentAdapter.updateList(list.map {
+                AppointmentItem(it.id, it.dogName, it.symptom, it.photoUrl)
+            })
         }
+        appointmentViewModel.getListAppointments()
     }
 
     override fun onDestroyView() {

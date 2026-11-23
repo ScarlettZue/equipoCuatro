@@ -56,6 +56,12 @@
         <action
             android:id="@+id/action_appointmentDetailsFragment_to_editAppointmentFragment"
             app:destination="@id/editAppointmentFragment" />
+        <!-- Al eliminar vuelve al Home (nueva instancia, así recarga la lista). -->
+        <action
+            android:id="@+id/action_appointmentDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <!-- HU 5.0 Ventana Editar Cita -->

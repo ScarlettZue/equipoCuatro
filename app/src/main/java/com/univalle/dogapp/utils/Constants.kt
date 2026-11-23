@@ -8,4 +8,8 @@ object Constants {
     const val END_POINT_BREEDS: String = "breeds/list/all"
     const val END_POINT_RANDOM_IMAGE: String = "breeds/image/random"
     const val END_POINT_BREED_IMAGE: String = "breed/{breed}/images/random"
+
+    // Argumentos de navegación entre Home, Detalle y Editar Cita
+    const val ARG_APPOINTMENT_ID: String = "appointmentId"
+    const val ARG_APPOINTMENT: String = "appointment"
 }

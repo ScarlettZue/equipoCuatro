@@ -6,14 +6,166 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         tools:context=".view.fragment.EditAppointmentFragment">
 
-        <!-- Vista provisional: se reemplaza al implementar la historia de usuario. -->
-        <TextView
+        <!-- Criterio 1: Toolbar personalizada gris oscuro con esquinas inferiores curvadas -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbarEditAppointment"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_toolbar_curved"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/content_desc_back_to_detail"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#F05861" />
+
+            <TextView
+                android:id="@+id/tvToolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_edit_appointment"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarEditAppointment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Criterio 2: Nombre de la mascota (Texto, máx. 15 caracteres) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDogName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/hint_dog_name"
+                    app:boxStrokeColor="#6200EE"
+                    app:hintTextColor="#6200EE">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDogName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:maxLength="15" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Criterio 3: Raza (AutoCompleteTextView) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilBreed"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/hint_breed"
+                    app:boxStrokeColor="#6200EE"
+                    app:endIconMode="none"
+                    app:hintTextColor="#6200EE">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/actvBreed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:completionThreshold="2"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Criterio 4: Nombre del propietario (Texto, máx. 30 caracteres) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilOwnerName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/hint_owner_name"
+                    app:boxStrokeColor="#6200EE"
+                    app:hintTextColor="#6200EE">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOwnerName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:maxLength="30" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Criterio 5: Teléfono (Solo números, máx. 10 caracteres) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/hint_phone"
+                    app:boxStrokeColor="#6200EE"
+                    app:hintTextColor="#6200EE">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="10" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Criterio 6 y 7: Botón Editar Cita -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEditAppointment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="48dp"
+                    android:enabled="false"
+                    android:paddingHorizontal="28dp"
+                    android:text="@string/btn_edit_appointment"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/selector_btn_editar"
+                    app:cornerRadius="26dp"
+                    app:icon="@drawable/ic_edit"
+                    app:iconGravity="textStart"
+                    app:iconTint="#23292E" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Indicador de carga (progressState) -->
+        <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_edit_appointment"
-            android:textSize="20sp"
+            android:indeterminateTint="#F05861"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

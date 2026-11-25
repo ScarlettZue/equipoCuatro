@@ -47,4 +47,10 @@
     <string name="edit_appointment">Editar cita</string>
     <string name="delete_error">No se pudo eliminar la cita</string>
     <string name="appointment_not_found">La cita ya no existe</string>
+    <!-- HU 5.0 Ventana Editar Cita -->
+    <string name="content_desc_back_to_detail">Volver al detalle</string>
+    <string name="hint_dog_name">Nombre de la mascota</string>
+    <string name="btn_edit_appointment">Editar Cita</string>
+    <string name="edit_appointment_error">Error al actualizar la cita</string>
+
 </resources>

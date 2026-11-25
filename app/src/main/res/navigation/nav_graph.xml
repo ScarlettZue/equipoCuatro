@@ -69,6 +69,14 @@
         android:id="@+id/editAppointmentFragment"
         android:name="com.univalle.dogapp.view.fragment.EditAppointmentFragment"
         android:label="@string/title_edit_appointment"
-        tools:layout="@layout/fragment_edit_appointment" />
+        tools:layout="@layout/fragment_edit_appointment">
+        <!-- Al editar vuelve al Home (nueva instancia, así recarga la lista). -->
+        <action
+            android:id="@+id/action_editAppointmentFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
 
 </navigation>

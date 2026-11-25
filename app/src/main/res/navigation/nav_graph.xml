@@ -38,7 +38,14 @@
         android:id="@+id/addAppointmentFragment"
         android:name="com.univalle.dogapp.view.fragment.AddAppointmentFragment"
         android:label="@string/title_add_appointment"
-        tools:layout="@layout/fragment_add_appointment" />
+        tools:layout="@layout/fragment_add_appointment">
+        <!-- Al guardar vuelve al Home (nueva instancia, así recarga la lista). -->
+        <action
+            android:id="@+id/action_addAppointmentFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <!-- HU 4.0 Ventana Detalle de la Cita -->
     <fragment
@@ -49,6 +56,12 @@
         <action
             android:id="@+id/action_appointmentDetailsFragment_to_editAppointmentFragment"
             app:destination="@id/editAppointmentFragment" />
+        <!-- Al eliminar vuelve al Home (nueva instancia, así recarga la lista). -->
+        <action
+            android:id="@+id/action_appointmentDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <!-- HU 5.0 Ventana Editar Cita -->

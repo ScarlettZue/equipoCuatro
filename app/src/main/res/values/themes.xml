@@ -4,4 +4,14 @@
         <item name="colorPrimary">@color/purple</item>
         <item name="android:statusBarColor">@color/purple</item>
     </style>
+
+    <!-- Campos de las ventanas Nueva Cita y Editar Cita: contorno morado al enfocar. -->
+    <style name="Widget.DogApp.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/purple</item>
+        <item name="hintTextColor">@color/purple</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
 </resources>

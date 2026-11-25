@@ -8,4 +8,12 @@
     <color name="dark_gray">#21282D</color>
     <!-- Morado de la barra de estado y del borde de los campos con foco (aproximado del pantallazo) -->
     <color name="purple">#6750A4</color>
+    <!-- Azul oscuro del botón flotante de editar (HU 4.0) -->
+    <color name="dark_blue">#1A2B6D</color>
+    <!-- Texto e ícono del botón Guardar Cita cuando está deshabilitado -->
+    <color name="white_disabled">#B3FFFFFF</color>
+    <!-- Contorno de los campos sin foco y del selector de síntomas -->
+    <color name="outline_gray">#79747E</color>
+    <!-- Texto secundario (síntoma en el Home y el Detalle) -->
+    <color name="text_secondary">#757575</color>
 </resources>

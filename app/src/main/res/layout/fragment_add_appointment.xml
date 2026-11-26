@@ -99,6 +99,7 @@
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/actvBreed"
+                        style="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:completionThreshold="2"
